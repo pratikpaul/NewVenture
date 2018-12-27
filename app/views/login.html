@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="css/main.css">
+<nav class="navbar navbar-default navbar-background" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Inspired Learning</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar">
+      <form name="loginForm" class="navbar-form navbar-right" role="form" ng-submit="moveToHome()">
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user"></span>
+            </span>
+            <input type="text" class="form-control" placeholder="Email/User Name" ng-model="user_cred.userName" required>
+          </div>
+          <!--<p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">First Name is required.</p>-->
+        </div>
+
+
+        <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock"></span>
+            </span>
+            <input type="password" class="form-control" placeholder="password" ng-model="user_cred.password" required>
+          </div>
+          <!--<p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Enter a valid password.</p>-->
+        </div>
+
+
+
+        <button type="submit" class="btn btn-success">Login</button>
+        <button class="btn btn-link pull-right"><small>Forget Password ?</small></button>
+      </form>
+
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+  <div class="panel panel-primary" style="margin-top:20%">
+    <div class="panel-heading">
+      <h4 class="text-center" style="font-size: 25px;">Register</h4>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+
+      <div class="col-sm-2">
+        &nbsp;
+      </div>
+
+      <div class="col-sm-8">
+        <form class="form-register" name="userForm" ng-submit="createAccount()" novalidate>
+
+          <!--FIRST NAME -->
+
+            <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
+              <input type="text" placeholder="First Name" name="firstname" class="form-control" ng-model="user_info.firstName" required>
+              <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">First Name is required.</p>
+            </div>
+
+          <!--LAST NAME -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine }">
+            <input type="text" placeholder="Last Name" name="lastname" class="form-control" ng-model="user_info.lastName" required>
+            <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" class="help-block">Last Name is required.</p>
+          </div>
+
+          <!--STATE NAME -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.state.$invalid && !userForm.state.$pristine }">
+            <!--<input type="text" placeholder="State" name="state" class="form-control" ng-model="user_info.state" required>-->
+            <select class="form-control" name="state" ng-model="user_info.state" required>
+                <option value="">Select State</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                <option value="Daman and Diu">Daman and Diu</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Orissa">Orissa</option>
+                <option value="Pondicherry">Pondicherry</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttaranchal">Uttaranchal</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+            <p ng-show="userForm.state.$invalid && !userForm.state.$pristine" class="help-block">City is required.</p>
+          </div>
+
+          <!--CITY NAME -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && !userForm.city.$pristine }">
+            <input type="text" placeholder="City" name="city" class="form-control" ng-model="user_info.city" required>
+            <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" class="help-block">City is required.</p>
+          </div>
+
+          <!-- USERNAME -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <input type="text" placeholder="User Name" name="username" class="form-control" ng-model="user_info.userName" ng-minlength="3" ng-maxlength="8" required>
+            <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">Username is required.</p>
+            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <input type="email" placeholder="Email" name="email" class="form-control" ng-model="user_info.email" required>
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+          </div>
+
+          <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+            <input type="password" placeholder="Password" name="password" class="form-control" ng-model="user_info.password" required>
+            <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Enter a valid password.</p>
+          </div>
+
+          <div class="divider"></div>
+          <button type="submit" class="btn btn-primary btn-lg center-block" ng-disabled="userForm.$invalid">Register</button>
+
+        </form>
+      </div>
+
+      <div class="col-sm-2">
+        &nbsp;
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
